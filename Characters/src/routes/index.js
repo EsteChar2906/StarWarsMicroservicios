@@ -1,10 +1,8 @@
 import { Router } from 'express';
-import characterRouter from './charactersRouter.js';
-
+import controllers from '../controllers/index.js';
+//import middlewares from '../middlewares/index.js';
 const router = Router();
 
-router.get('/', (req, res) => res.status(200).send('Hello World'));
-
-router.use('/characters', characterRouter);
+router.get('/characters', controllers.getCharacters);
 
 export default router;

@@ -1,10 +1,8 @@
-import { Router } from 'express';
-import planetsRouter from './planetsRouter.js';
+import { Router } from "express";
+import controllers from "../controllers/index.js";
 
 const router = Router();
 
-router.get('/', (req, res) => res.status(200).send('Hello World'));
-
-router.use('/planets', planetsRouter);
+router.get("/planets", controllers.getPlanets);
 
 export default router;
