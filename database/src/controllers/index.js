@@ -1,4 +1,7 @@
+const { catchedAsync } = require("../utils");
+
 module.exports = {
-  getData: require("./getDataControllers.js"),
-  getDataById: require("./getDataByIdControllers.js"),
+  getData: catchedAsync(require("./getDataControllers.js")),
+  getDataById: catchedAsync(require("./getDataByIdControllers.js")),
+  createData: catchedAsync(require("./createDataControllers.js")),
 };

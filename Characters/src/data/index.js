@@ -1,9 +1,16 @@
-import { readFile } from "fs/promises";
-const data = await readFile('./src/data/characters.json', 'utf-8');
-const characters = JSON.parse(data);
+import utils from "../utils/index.js";
 
 export default {
-    characters: async () => {
-        return characters;
-    }
-}
+  list: async () => {
+    const result = await utils.consultingDB("get");
+    return result;
+  },
+  byId: async (id) => {
+    const result = await utils.consultingDB("get", id);
+    return result;
+  },
+  assert: async (newCharacter) => {
+    const result = await utils.consultingDB("post", newCharacter);
+    return result;
+  },
+};

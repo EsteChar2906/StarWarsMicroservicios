@@ -1,5 +1,7 @@
-import server from './src/server.js';
+import server from "./src/server.js";
 
-server.listen(server.get('port'), () => {
-  console.log(`Server listening on port ${server.get('port')}`);
+server.listen(server.get("port"), () => {
+  console.log(
+    `Character microservices listening on port ${server.get("port")}`
+  );
 });

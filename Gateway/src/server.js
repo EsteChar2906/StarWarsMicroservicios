@@ -1,9 +1,13 @@
 const express = require("express");
 const morgan = require("morgan");
-const { createProxyMiddleware } = require("http-proxy-middleware");
+const {
+  createProxyMiddleware,
+  fixRequestBody,
+} = require("http-proxy-middleware");
+const { PORT, CHARACTERS, FILMS, PLANETS } = require("./config/env.js");
 
 const server = express();
-server.set("port", 6005);
+server.set("port", PORT);
 
 server.use(express.json());
 server.use(morgan("dev"));
@@ -15,24 +19,27 @@ server.get("/", (req, res) => {
 server.use(
   "/characters",
   createProxyMiddleware({
-    target: "http://localhost:6001",
+    target: CHARACTERS,
     changeOrigin: true,
+    onProxyReq: fixRequestBody,
   })
 );
 
 server.use(
   "/films",
   createProxyMiddleware({
-    target: "http://localhost:6002",
+    target: FILMS,
     changeOrigin: true,
+    onProxyReq: fixRequestBody,
   })
 );
 
 server.use(
   "/planets",
   createProxyMiddleware({
-    target: "http://localhost:6003",
+    target: PLANETS,
     changeOrigin: true,
+    onProxyReq: fixRequestBody,
   })
 );
 
