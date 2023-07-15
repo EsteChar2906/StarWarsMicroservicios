@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 module.exports = {
-  PORT: process.env.PORT,
+  PORT: 6000,
   CHARACTERS: process.env.CHARACTERS,
   FILMS: process.env.FILMS,
   PLANETS: process.env.PLANETS,

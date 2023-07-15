@@ -1,6 +1,6 @@
 import { config } from "dotenv";
 config();
 export default {
-  PORT: process.env.PORT,
+  PORT: 6003,
   DATABASE: process.env.DATABASE,
 };
