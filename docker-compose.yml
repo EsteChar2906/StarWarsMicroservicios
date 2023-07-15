@@ -12,22 +12,22 @@ services:
     restart: always
     build: ./characters
     ports:
-      - ":6001"
+      - "6001:6001"
   films:
     container_name: films
     restart: always
     build: ./films
     ports:
-      - ":6002"
+      - "6002:6002"
   planets:
     container_name: planets
     restart: always
     build: ./planets
     ports:
-      - ":6003"
+      - "6003:6003"
   database:
     container_name: database
     restart: always
     build: ./database
     ports:
-      - ":6004"
+      - "6004:6004"
