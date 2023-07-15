@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+  gateway:
+    container_name: gateway
+    restart: always
+    build: ./gateway
+    ports:
+      - 6000:6000
+  characters:
+    container_name: characters
+    restart: always
+    build: ./characters
+    ports:
+      - :6001
+  films:
+    container_name: films
+    restart: always
+    build: ./films
+    ports:
+      - :6002
+  planets:
+    container_name: planets
+    restart: always
+    build: ./planets
+    ports:
+      - :6003
+  database:
+    container_name: database
+    restart: always
+    build: ./database
+    ports:
+      - :6004
