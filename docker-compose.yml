@@ -28,6 +28,6 @@ services:
   database:
     container_name: database
     restart: always
-    build: ./Database
+    build: ./database
     ports:
       - "6004:6004"
